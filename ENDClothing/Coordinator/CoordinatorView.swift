@@ -11,7 +11,7 @@ struct CoordinatorView: View {
     
     @StateObject private var coordinator = Coordinator()
     
-    let entryPoint: Page = .fasttrack
+    let entryPoint: Page = .products
     
     var body: some View {
         NavigationStack(path: $coordinator.path) {

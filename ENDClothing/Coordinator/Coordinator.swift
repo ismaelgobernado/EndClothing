@@ -7,16 +7,23 @@
 
 import SwiftUI
 
-enum Page: Identifiable, CaseIterable {
+enum Page: Identifiable, Hashable {
     
-    case fasttrack,products, productDetail
+    case products, productDetail(productViewModel:ProductViewModel)
     
     var id: String {
         return switch self {
-        case .fasttrack : "fasttrack"
         case .products : "products"
         case .productDetail : "productDetail"
         }
+    }
+    
+    static func == (lhs: Page, rhs: Page) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }
 
@@ -84,10 +91,8 @@ class Coordinator: ObservableObject {
         switch page {
         case .products:
             ProductsView()
-        case .productDetail:
-            ProductDetailView()
-        case .fasttrack:
-            CoordinatorFasttrackView()
+        case .productDetail(let viewModel):
+            ProductDetailView(viewModel: viewModel)
         }
     }
     
