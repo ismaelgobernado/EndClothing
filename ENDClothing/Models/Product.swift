@@ -35,4 +35,22 @@ struct Product: Identifiable, Codable, Equatable {
         self.price = Decimal(string: price.replacingOccurrences(of: "£", with: "").trimmingCharacters(in: .whitespaces)) ?? 0
         self.image = try container.decode(URL.self, forKey: .image)
     }
+    
+    func isEqualExcludingID(to other: Product) -> Bool {
+        return self.name == other.name &&
+        self.price == other.price &&
+        self.image == other.image
+    }
+    
+    static func areProductsEqual(_ array1: [Product], _ array2: [Product]) -> Bool {
+        guard array1.count == array2.count else { return false }
+        
+        for (product1, product2) in zip(array1, array2) {
+            if !product1.isEqualExcludingID(to: product2) {
+                return false
+            }
+        }
+        
+        return true
+    }
 }
