@@ -30,6 +30,28 @@ enum Sheet: Identifiable, CaseIterable {
         case .filterOptions: "filterOptions"
         }
     }
+    
+    func detents() -> Set<PresentationDetent> {
+        switch self {
+        case .visualizationOptions:
+            return [.medium]
+        case .sortOptions:
+            return [.medium]
+        case .filterOptions:
+            return [.large]
+        }
+    }
+    
+    func title() -> String {
+        switch self {
+        case .visualizationOptions:
+            return "View"
+        case .sortOptions:
+            return "Sort"
+        case .filterOptions:
+            return "Filter"
+        }
+    }
 }
 
 class Coordinator: ObservableObject {
@@ -71,19 +93,21 @@ class Coordinator: ObservableObject {
     
     @ViewBuilder
     func build(sheet:Sheet) -> some View {
+        let detents = sheet.detents()
+        let title = sheet.title()
         switch sheet {
         case .visualizationOptions:
             SheetView(content: {
                 VisualizationOptionsView()
-            }, title: "View")
+            }, title: title).presentationDetents(detents)
         case .sortOptions:
             SheetView(content: {
                 SortOptionsView()
-            }, title: "Sort")
+            }, title: title).presentationDetents(detents)
         case .filterOptions:
             SheetView(content: {
                 FilterOptionsView()
-            }, title: "Filter")
+            }, title: title).presentationDetents(detents)
         }
     }
 }

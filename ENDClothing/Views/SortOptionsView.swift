@@ -12,7 +12,7 @@ struct SortOptionsView: View {
     @EnvironmentObject private var coordinator: Coordinator
     
     var body: some View {
-        Text("SortOptionsView")
+        Text("TODO: Sort")
     }
 }
 

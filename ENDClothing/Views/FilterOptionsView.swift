@@ -12,7 +12,7 @@ struct FilterOptionsView : View {
     @EnvironmentObject private var coordinator: Coordinator
     
     var body: some View {
-        Text("FilterOptionsView")
+        Text("TODO: Filter")
     }
 }
 
