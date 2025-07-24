@@ -10,14 +10,30 @@
 		4C586FDC2E3291C400E440DD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4C586FDB2E3291C400E440DD /* Kingfisher */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4C586FF22E32956000E440DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4C586F762E326DB300E440DD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4C586F7D2E326DB300E440DD;
+			remoteInfo = ENDClothing;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		4C586F7E2E326DB300E440DD /* ENDClothing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ENDClothing.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C586FEE2E32956000E440DD /* ENDClothingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ENDClothingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		4C586F802E326DB300E440DD /* ENDClothing */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = ENDClothing;
+			sourceTree = "<group>";
+		};
+		4C586FEF2E32956000E440DD /* ENDClothingTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ENDClothingTests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -31,6 +47,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4C586FEB2E32956000E440DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -38,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				4C586F802E326DB300E440DD /* ENDClothing */,
+				4C586FEF2E32956000E440DD /* ENDClothingTests */,
 				4C586F7F2E326DB300E440DD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				4C586F7E2E326DB300E440DD /* ENDClothing.app */,
+				4C586FEE2E32956000E440DD /* ENDClothingTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -76,6 +101,29 @@
 			productReference = 4C586F7E2E326DB300E440DD /* ENDClothing.app */;
 			productType = "com.apple.product-type.application";
 		};
+		4C586FED2E32956000E440DD /* ENDClothingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4C586FF42E32956000E440DD /* Build configuration list for PBXNativeTarget "ENDClothingTests" */;
+			buildPhases = (
+				4C586FEA2E32956000E440DD /* Sources */,
+				4C586FEB2E32956000E440DD /* Frameworks */,
+				4C586FEC2E32956000E440DD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4C586FF32E32956000E440DD /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				4C586FEF2E32956000E440DD /* ENDClothingTests */,
+			);
+			name = ENDClothingTests;
+			packageProductDependencies = (
+			);
+			productName = ENDClothingTests;
+			productReference = 4C586FEE2E32956000E440DD /* ENDClothingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -88,6 +136,11 @@
 				TargetAttributes = {
 					4C586F7D2E326DB300E440DD = {
 						CreatedOnToolsVersion = 16.2;
+					};
+					4C586FED2E32956000E440DD = {
+						CreatedOnToolsVersion = 16.2;
+						LastSwiftMigration = 1620;
+						TestTargetID = 4C586F7D2E326DB300E440DD;
 					};
 				};
 			};
@@ -109,12 +162,20 @@
 			projectRoot = "";
 			targets = (
 				4C586F7D2E326DB300E440DD /* ENDClothing */,
+				4C586FED2E32956000E440DD /* ENDClothingTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		4C586F7C2E326DB300E440DD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C586FEC2E32956000E440DD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -131,7 +192,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4C586FEA2E32956000E440DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4C586FF32E32956000E440DD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4C586F7D2E326DB300E440DD /* ENDClothing */;
+			targetProxy = 4C586FF22E32956000E440DD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		4C586F8A2E326DB500E440DD /* Debug */ = {
@@ -311,6 +387,45 @@
 			};
 			name = Release;
 		};
+		4C586FF52E32956000E440DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 49NFZ3RG79;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = IGA.ENDClothingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ENDClothing.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ENDClothing";
+			};
+			name = Debug;
+		};
+		4C586FF62E32956000E440DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 49NFZ3RG79;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = IGA.ENDClothingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ENDClothing.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ENDClothing";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -328,6 +443,15 @@
 			buildConfigurations = (
 				4C586F8D2E326DB500E440DD /* Debug */,
 				4C586F8E2E326DB500E440DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4C586FF42E32956000E440DD /* Build configuration list for PBXNativeTarget "ENDClothingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C586FF52E32956000E440DD /* Debug */,
+				4C586FF62E32956000E440DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
