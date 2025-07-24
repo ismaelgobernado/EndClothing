@@ -13,6 +13,9 @@ This repo contains the following targets:
     dependencies are linked via Package manager:
     [Kingfisher] (https://github.com/onevcat/Kingfisher) 8.5.0
 
+#### UI
+    SwiftUI
+
 ### About the Provided Endpoint
 
 In the current implementation of the Product struct, the id attribute is generated using a static incremental index due to the product data being received. The products from the provided endpoint contain **identical data**, leading to the situation where multiple products have the same attributes except for their id.
