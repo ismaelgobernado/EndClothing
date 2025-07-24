@@ -19,11 +19,7 @@ struct ProductsView: View {
     
     var body: some View {
         ResizableHeaderScrollView {
-            HStack{
-                Text("Sort").background(.red)
-                Text("View").background(.orange)
-                Text("Filter").background(.green)
-            }
+            HeaderView()
         }background: {
             Rectangle().fill(.white)
         } content: {
