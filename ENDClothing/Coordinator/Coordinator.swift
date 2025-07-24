@@ -27,15 +27,23 @@ enum Page: Identifiable, Hashable {
     }
 }
 
-enum Sheet: Identifiable, CaseIterable {
-    case visualizationOptions, sortOptions, filterOptions
+enum Sheet: Identifiable, Hashable, Equatable {
+    case visualizationOptions, sortOptions(selectedSorting: Binding<Sorting>), filterOptions
     
     var id: String {
         return switch self {
         case .visualizationOptions : "visualizationOptions"
-        case .sortOptions: "sortOptions"
+        case .sortOptions(selectedSorting: _): "sortOptions"
         case .filterOptions: "filterOptions"
         }
+    }
+    
+    static func == (lhs: Sheet, rhs: Sheet) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
     
     func detents() -> Set<PresentationDetent> {
@@ -105,9 +113,9 @@ class Coordinator: ObservableObject {
             SheetView(content: {
                 VisualizationOptionsView()
             }, title: title).presentationDetents(detents)
-        case .sortOptions:
+        case .sortOptions(let selectedSorting):
             SheetView(content: {
-                SortOptionsView()
+                SortOptionsView(selectedSorting: selectedSorting)
             }, title: title).presentationDetents(detents)
         case .filterOptions:
             SheetView(content: {

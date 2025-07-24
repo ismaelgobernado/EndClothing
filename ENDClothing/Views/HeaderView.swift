@@ -21,11 +21,12 @@ struct Constants {
 struct HeaderView: View {
     
     @EnvironmentObject private var coordinator: Coordinator
+    @Binding var selectedSorting: Sorting
     
     var body: some View {
         HStack (spacing: 0){
             Button(action: {
-                coordinator.present(sheet: .sortOptions)
+                coordinator.present(sheet: .sortOptions(selectedSorting: $selectedSorting))
             }) {
                 ZStack {
                     Rectangle()

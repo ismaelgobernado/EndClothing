@@ -19,7 +19,7 @@ struct ProductsView: View {
     
     var body: some View {
         ResizableHeaderScrollView {
-            HeaderView()
+            HeaderView(selectedSorting: $viewModel.selectedSorting)
         }background: {
             Rectangle().fill(.white)
         } content: {
@@ -28,7 +28,10 @@ struct ProductsView: View {
             LazyVGrid(columns: columns) {
                 ForEach (viewModel.products) { product in
                     GridRow {
-                        Text("\(product.name)")
+                        VStack {
+                            Text("\(product.name)")
+                            Text("\(product.price)")
+                        }
                     }.onTapGesture {
                         withAnimation {
                             coordinator.push(.productDetail(productViewModel: ProductViewModel(product:product)))
