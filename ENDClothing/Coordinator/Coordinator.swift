@@ -73,11 +73,17 @@ class Coordinator: ObservableObject {
     func build(sheet:Sheet) -> some View {
         switch sheet {
         case .visualizationOptions:
-            VisualizationOptionsView()
+            SheetView(content: {
+                VisualizationOptionsView()
+            }, title: "View")
         case .sortOptions:
-            SortOptionsView()
+            SheetView(content: {
+                SortOptionsView()
+            }, title: "Sort")
         case .filterOptions:
-            FilterOptionsView()
+            SheetView(content: {
+                FilterOptionsView()
+            }, title: "Filter")
         }
     }
 }
