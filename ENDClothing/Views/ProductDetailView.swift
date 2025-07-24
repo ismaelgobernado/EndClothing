@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ProductDetailView: View {
     
@@ -13,7 +14,18 @@ struct ProductDetailView: View {
     var viewModel : ProductViewModel
     
     var body: some View {
-        Text(viewModel.product.name)
+        VStack {
+            Text(viewModel.product.name)
+            Text("£ \(viewModel.product.price)")
+            KFImage.url(viewModel.product.image)
+                .loadDiskFileSynchronously()
+                .cacheMemoryOnly()
+                .fade(duration: Constants.fadeDuration)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .accessibilityIdentifier("product.image\(viewModel.product.image.lastPathComponent)")
+                .padding()
+        }
     }
 }
 

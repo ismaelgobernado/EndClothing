@@ -28,10 +28,7 @@ struct ProductsView: View {
             LazyVGrid(columns: columns) {
                 ForEach (viewModel.products) { product in
                     GridRow {
-                        VStack {
-                            Text("\(product.name)")
-                            Text("\(product.price)")
-                        }
+                        GridRowProduct(product: product)
                     }.onTapGesture {
                         withAnimation {
                             coordinator.push(.productDetail(productViewModel: ProductViewModel(product:product)))
