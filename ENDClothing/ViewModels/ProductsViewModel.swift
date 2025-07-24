@@ -4,7 +4,9 @@
 //
 //  Created by Ismael Gobernado on 19/07/2025.
 //
+
 import Foundation
+import Combine
 
 enum Sorting : String, CaseIterable {
     case none, low, high
@@ -31,6 +33,11 @@ final class ProductsViewModel: ObservableObject {
         }
     }
     
+    private var cancellables = Set<AnyCancellable>()
+    let networkService: NetworkService
+    private var productListing: ProductListing?
+    
+    
     private func sortProducts() {
         if selectedSorting != .none {
             products.sort {
@@ -39,18 +46,30 @@ final class ProductsViewModel: ObservableObject {
         }
     }
     
+    init(networkService: NetworkService = NetworkService(), products: [Product] = []) {
+        self.networkService = networkService
+        self.products = products
+    }
+    
     func fetchData() async {
-        title = "title"
-        
-        let product1 = Product(id: "1", name: "Test Product 1", price: "£6.99", image: URL(string: "https://placehold.co/250x250?text=Product")!)
-        let product2 = Product(id: "2", name: "Test Product 2", price: "£9.99", image: URL(string: "https://placehold.co/250x250?text=Product")!)
-        let product3 = Product(id: "3", name: "Test Product 3", price: "£7.99", image: URL(string: "https://placehold.co/250x250?text=Product")!)
-        let product4 = Product(id: "4", name: "Test Product 4", price: "£10.99", image: URL(string: "https://placehold.co/250x250?text=Product")!)
-        let product5 = Product(id: "5", name: "Test Product 5", price: "£4.99", image: URL(string: "https://placehold.co/250x250?text=Product")!)
-        let product6 = Product(id: "6", name: "Test Product 6", price: "£1.99", image: URL(string: "https://placehold.co/250x250?text=Product")!)
-        products = [product1, product2, product3, product4, product5, product6]
-        
-        productCount = 6
+        networkService.fetchItems(EndClothingEndpoints.catalog)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                self.handleError(completion)
+            } receiveValue: { [weak self] productListing in
+                guard let self = self else { return }
+                self.productListing = productListing
+                self.title = self.productListing?.title ?? ""
+                self.products = self.productListing?.products ?? []
+                self.productCount = self.productListing?.productCount ?? 0
+            }.store(in: &cancellables)
+    }
+    
+    private func handleError(_ completion: Subscribers.Completion<NetworkError>) {
+        if case .failure(let error) = completion {
+            print("🔴 Failure: \(error)")
+        }
     }
     
     
