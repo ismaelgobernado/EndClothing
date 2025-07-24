@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4C586FDC2E3291C400E440DD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4C586FDB2E3291C400E440DD /* Kingfisher */; };
+		4C93CFF32E32A48A009E8BE2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4C93CFF22E32A48A009E8BE2 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		4C586F7E2E326DB300E440DD /* ENDClothing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ENDClothing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C586FEE2E32956000E440DD /* ENDClothingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ENDClothingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C93CFF22E32A48A009E8BE2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -81,6 +83,7 @@
 		4C586F752E326DB300E440DD = {
 			isa = PBXGroup;
 			children = (
+				4C93CFF22E32A48A009E8BE2 /* README.md */,
 				4C586F802E326DB300E440DD /* ENDClothing */,
 				4C586FEF2E32956000E440DD /* ENDClothingTests */,
 				4C586F7F2E326DB300E440DD /* Products */,
@@ -193,6 +196,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C93CFF32E32A48A009E8BE2 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
