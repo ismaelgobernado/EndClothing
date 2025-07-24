@@ -25,6 +25,23 @@
 		4C586FEE2E32956000E440DD /* ENDClothingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ENDClothingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		4C93CFEA2E32A0CE009E8BE2 /* Exceptions for "ENDClothingTests" folder in "ENDClothingTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Fixtures/Example.json,
+			);
+			target = 4C586FED2E32956000E440DD /* ENDClothingTests */;
+		};
+		4C93CFEC2E32A0D9009E8BE2 /* Exceptions for "ENDClothingTests" folder in "ENDClothing" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Fixtures/Example.json,
+			);
+			target = 4C586F7D2E326DB300E440DD /* ENDClothing */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		4C586F802E326DB300E440DD /* ENDClothing */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -33,6 +50,10 @@
 		};
 		4C586FEF2E32956000E440DD /* ENDClothingTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				4C93CFEC2E32A0D9009E8BE2 /* Exceptions for "ENDClothingTests" folder in "ENDClothing" target */,
+				4C93CFEA2E32A0CE009E8BE2 /* Exceptions for "ENDClothingTests" folder in "ENDClothingTests" target */,
+			);
 			path = ENDClothingTests;
 			sourceTree = "<group>";
 		};
