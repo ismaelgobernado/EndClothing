@@ -18,7 +18,15 @@ struct ProductsView: View {
     ]
     
     var body: some View {
-        VStack {
+        ResizableHeaderScrollView {
+            HStack{
+                Text("Sort").background(.red)
+                Text("View").background(.orange)
+                Text("Filter").background(.green)
+            }
+        }background: {
+            Rectangle().fill(.white)
+        } content: {
             Spacer(minLength: 15)
             Text("\(viewModel.productCount) Items").tint(.black)
             LazyVGrid(columns: columns) {
